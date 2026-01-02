@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mingamos – Inversión Inteligente Ancud</title>
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Top banner inspired by the Mingamos brochure -->
+    <!-- Header updated with warmer Chilote-inspired gradient -->
+        <header class="bg-gradient-to-r from-emerald-600 via-lime-500 to-amber-300 text-white p-8 sm:p-10 rounded-b-3xl shadow-lg">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <!-- Logo and tagline -->
+            <div class="flex flex-col gap-2">
+                <!-- Brand name and tagline. We remove the logo image to avoid missing image issues. -->
+                <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">Mingamos – Inversión Inteligente Ancud</h1>
+                <p class="text-sm md:text-base opacity-90">Haz realidad tu sueño junto al río con una inversión segura</p>
+            </div>
+            <!-- Highlight of guarantee and historical plusvalía -->
+            <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg flex flex-col items-center">
+                <span class="text-sm font-semibold">Retorno mínimo garantizado</span>
+                <span class="text-3xl font-bold">7% + UF</span>
+                <span class="text-xs opacity-80 mb-2">mediante Pacto de Retroventa</span>
+                <span class="text-sm font-semibold">Plusvalía histórica Mingamos</span>
+                <span class="text-2xl font-bold">14&nbsp;% /año</span>
+            </div>
+        </div>
+        <!-- Quick benefits bar -->
+        <div class="container mx-auto mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="flex items-center gap-3 bg-white/30 p-3 rounded-lg">
+                <span class="text-2xl">🏡</span>
+                <div>
+                    <p class="text-sm font-semibold">Activo tangible</p>
+                    <p class="text-xs opacity-80">Parcela a tu nombre</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 bg-white/30 p-3 rounded-lg">
+                <span class="text-2xl">🔁</span>
+                <div>
+                    <p class="text-sm font-semibold">Pacto de retroventa</p>
+                    <p class="text-xs opacity-80">Recompra garantizada</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 bg-white/30 p-3 rounded-lg">
+                <span class="text-2xl">📈</span>
+                <div>
+                    <p class="text-sm font-semibold">Plusvalía anual</p>
+                    <p class="text-xs opacity-80">Histórico 14–18%</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 bg-white/30 p-3 rounded-lg">
+                <span class="text-2xl">📊</span>
+                <div>
+                    <p class="text-sm font-semibold">Mercado vendedor</p>
+                    <p class="text-xs opacity-80">Oferta/demanda 1:17</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Romantic introduction and safety net information -->
+    <section class="container mx-auto px-4 py-10 max-w-7xl">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">🌿 Imagina tu parcela</h2>
+            <p class="text-gray-700 text-base leading-relaxed">
+                Imagina despertar con el sonido del río, respirar aire puro y disfrutar de un refugio natural junto a tu familia. Este sueño se mide
+                en momentos y tranquilidad más que en números. Si en algún momento no puedes ocupar la parcela o necesitas liquidez, el
+                <strong>Pacto de Retroventa</strong> de Mingamos te protege: recompramos tu terreno, devolviéndote tu inversión en UF con un 7 % de rentabilidad anual.
+            </p>
+            <!-- Información sobre el pacto de retroventa con un ejemplo -->
+            <section class="mt-8 bg-green-50 p-4 rounded-lg border border-green-300">
+                <h3 class="text-lg font-semibold text-green-800">¿Cómo funciona el pacto de retroventa?</h3>
+                <p class="text-sm text-gray-700 mt-2">Es un acuerdo que te permite recuperar tu inversión si decides salir antes de que la parcela se venda. Mingamos recompra la propiedad a cambio de tu capital inicial más una rentabilidad mínima.</p>
+                <div class="mt-4 space-y-2 text-sm text-gray-700">
+                    <p><strong>Ejemplo con inversión de 9M:</strong></p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Venta exitosa:</strong> recuperas tu inversión en UF + 7 % anual y recibes el 25 % del diferencial entre el precio de venta (14,7 M) y tu aporte (9 M).</li>
+                        <li><strong>No se vende:</strong> activamos el retroventa: Mingamos te paga tu capital en UF + 7 % anual, sin complicaciones.</li>
+                        <li><strong>Te quedas:</strong> puedes conservar la parcela abonando la diferencia hasta el precio de venta y así aprovechar la plusvalía acumulada.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-8 max-w-7xl space-y-10">
+        <!-- Grid layout for simulator and results -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Simulator controls -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">📊 Configura tu inversión</h2>
+                <p class="text-sm text-gray-600 mb-4">
+                    Elige tu aporte inicial (9, 12 o 16&nbsp;M) y aprovecha el descuento: Mingamos vende hoy las parcelas en 14,7&nbsp;M, 17,5&nbsp;M y 26&nbsp;M. Si la venta se concreta, recuperas tu inversión en UF + 7&nbsp;% anual y un 25&nbsp;% del diferencial. Si no se logra, activamos el Pacto de Retroventa y te devolvemos tu capital en UF + 7&nbsp;% anual. Siempre puedes completar el precio y quedarte con la parcela.
+                </p>
+                <div class="space-y-5">
+                    <!-- Plan de inversión -->
+                    <div>
+                        <label for="plan" class="block text-sm font-semibold text-gray-700 mb-1">Monto a invertir (M CLP)</label>
+                        <select id="plan" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                            <option value="9">9M – Parcela con orilla de río (venta 14,7M)</option>
+                            <option value="12">12M – Parcela con orilla y sector consolidado (venta 17,5M)</option>
+                            <option value="16">16M – Parcela completa (venta 26M)</option>
+                        </select>
+                    </div>
+                    <!-- Plazo -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Plazo (meses)</label>
+                        <select id="plazo" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                            <option value="24" selected>24 meses</option>
+                            <option value="36">36 meses</option>
+                        </select>
+                    </div>
+                    <!-- Botón calcular -->
+                    <button onclick="calcular()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-colors">🔄 Recalcular</button>
+                </div>
+                <!-- Safety margin display -->
+                <div class="mt-6 p-4 bg-green-50 border-2 border-green-300 rounded-lg">
+                    <p class="text-sm font-semibold text-gray-700">Margen de seguridad:</p>
+                    <div id="margenSeguridad" class="text-3xl font-bold text-green-600"></div>
+                    <p class="text-xs text-gray-600 mt-1">por debajo del valor de venta</p>
+                </div>
+            </div>
+            <!-- Investment results -->
+            <div class="lg:col-span-2 flex flex-col space-y-6">
+                <!-- Inversión summary -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">💰 Tu Inversión</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg border-2 border-blue-200">
+                            <p class="text-sm text-gray-600">Monto a invertir</p>
+                            <p id="montoInversion" class="text-2xl font-bold text-blue-600"></p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border-2 border-green-200">
+                            <p class="text-sm text-gray-600">Retorno mínimo garantizado (UF + 7 % anual)</p>
+                            <p id="retornoMinimo" class="text-2xl font-bold text-green-600"></p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg border-2 border-purple-200">
+                            <p class="text-sm text-gray-600">ROI mínimo</p>
+                            <p id="roiMinimo" class="text-2xl font-bold text-purple-600"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Scenario tabs and content -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">📈 Escenarios de Retorno</h2>
+                    <!-- Tabs (reordered: exitosa, conserva, no venta) -->
+                    <div class="flex border-b mb-4">
+                        <!-- Venta exitosa tab stays first -->
+                        <button onclick="cambiarTab('exitoso')" id="tabExitoso" class="px-4 py-2 font-semibold border-b-2 border-green-600 text-green-600">✅ Venta exitosa</button>
+                        <!-- Quiero la parcela (conserva) tab -->
+                        <button onclick="cambiarTab('conserva')" id="tabConserva" class="px-4 py-2 font-semibold text-gray-500 hover:text-gray-700">🏡 Quiero la parcela</button>
+                        <!-- No se vende tab goes last -->
+                        <button onclick="cambiarTab('noVenta')" id="tabNoVenta" class="px-4 py-2 font-semibold text-gray-500 hover:text-gray-700">⚠️ No se vende</button>
+                    </div>
+                    <!-- Successful sale scenario -->
+                    <div id="escenarioExitoso" class="space-y-4">
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border-2 border-green-300">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-3xl">🎉</span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-green-800">Proyecto se vende exitosamente</h3>
+                                    <p class="text-sm text-green-700">Probabilidad: 80-85%</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="text-sm text-gray-600">Precio de venta</p>
+                                    <p id="precioVentaFinal" class="text-2xl font-bold text-gray-800"></p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="text-sm text-gray-600">Ganancia total</p>
+                                    <p id="gananciaTotal" class="text-2xl font-bold text-green-600"></p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="text-sm text-gray-600">Participación&nbsp;(25%)</p>
+                                    <p id="tuGanancia" class="text-2xl font-bold text-blue-600"></p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="text-sm text-gray-600">Retorno total</p>
+                                    <p id="retornoTotal" class="text-2xl font-bold text-purple-600"></p>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-white rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">ROI total:</span>
+                                    <span id="roiExitoso" class="text-3xl font-bold text-green-600"></span>
+                                </div>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="font-semibold">ROI anualizado:</span>
+                                    <span id="roiAnualizado" class="text-2xl font-bold text-blue-600"></span>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                                <p class="text-sm font-semibold text-yellow-800">💡 Ejemplo real:</p>
+                                <p class="text-sm text-yellow-700 mt-1" id="ejemploExitoso"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- No sale scenario -->
+                    <div id="escenarioNoVenta" class="space-y-4 hidden">
+                            <div class="bg-gradient-to-r from-orange-50 to-yellow-50 p-6 rounded-lg border-2 border-orange-300">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-3xl">🛡️</span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-orange-800">No se vende: te quedas con la parcela</h3>
+                                    <p class="text-sm text-orange-700">Probabilidad: 15-20%</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="text-sm text-gray-600 mb-2">Cerca del vencimiento:</p>
+                                    <p class="font-semibold text-gray-800">Si no se vende, Mingamos te paga los intereses garantizados</p>
+                                </div>
+                                <div class="bg-green-100 p-4 rounded-lg border-2 border-green-400">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-semibold">Mingamos te paga:</span>
+                                        <span id="pagoRetroventa" class="text-3xl font-bold text-green-700"></span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-2">Sólo intereses (7 % anual) en UF</p>
+                                </div>
+                                <div class="bg-blue-100 p-4 rounded-lg border-2 border-blue-400">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-semibold">Tu ROI garantizado:</span>
+                                        <span id="roiGarantizado" class="text-2xl font-bold text-blue-700"></span>
+                                    </div>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <p class="text-sm font-semibold text-purple-800 mb-2">¿Qué pasa con la parcela?</p>
+                                    <p class="text-sm text-gray-700">Te quedas con la parcela. Ya eres dueño del 65 % del valor.</p>
+                                    <p class="text-sm text-gray-700 mt-1">No se devuelve el capital; recibes sólo los intereses.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-green-50 border-l-4 border-green-400 rounded">
+                                <p class="text-sm font-semibold text-green-800">✅ Tus intereses están protegidos</p>
+                                <p class="text-sm text-green-700 mt-1">Recibes los intereses anuales (7 %) y mantienes la parcela</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Keep parcel scenario -->
+                    <div id="escenarioConserva" class="space-y-4 hidden">
+                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-2 border-purple-300">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-3xl">🏡</span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-purple-800">Decides quedarte con la parcela</h3>
+                                    <p class="text-sm text-purple-700">Puedes ejercer esta opción al vencimiento</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="text-sm text-gray-600 mb-2">En lugar de recibir el pago garantizado:</p>
+                                    <p class="font-semibold text-gray-800">Puedes quedarte con la parcela y pagar el saldo</p>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <div class="bg-blue-100 p-4 rounded-lg">
+                                        <p class="text-sm text-gray-600">Ya pagaste</p>
+                                        <p id="yaPagado" class="text-2xl font-bold text-blue-700"></p>
+                                    </div>
+                                    <div class="bg-orange-100 p-4 rounded-lg">
+                                        <p class="text-sm text-gray-600">Pago adicional (diferencia)</p>
+                                        <p id="pagoAdicional" class="text-2xl font-bold text-orange-700"></p>
+                                    </div>
+                                </div>
+                                <div class="bg-green-100 p-4 rounded-lg border-2 border-green-400">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-semibold">Valor real de mercado:</span>
+                                        <span id="valorMercadoConserva" class="text-3xl font-bold text-green-700"></span>
+                                    </div>
+                                </div>
+                                <div class="bg-purple-100 p-4 rounded-lg border-2 border-purple-400">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-semibold">Tu ganancia instantánea:</span>
+                                        <span id="gananciaConserva" class="text-3xl font-bold text-purple-700"></span>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-sm">ROI:</span>
+                                        <span id="roiConserva" class="text-xl font-bold text-purple-600"></span>
+                                    </div>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <p class="text-sm font-semibold text-yellow-800 mb-2">🏠 Beneficios adicionales:</p>
+                                    <ul class="text-sm text-gray-700 space-y-1 list-disc pl-5">
+                                        <li>Compras muy por debajo del precio de mercado</li>
+                                        <li>Parcela con DRC (bonos de carbono perpetuos)</li>
+                                        <li>Posibilidad de construir tu casa o arrendar</li>
+                                        <li>Reventa futura con mayor plusvalía</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Scenario comparison chart -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">📊 Comparación de Escenarios</h2>
+                    <!-- Limit chart height so it fits within a single viewport -->
+                    <canvas id="chartComparacion" height="200" class="max-h-56"></canvas>
+                </div>
+                <!-- Cash flow table -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">💵 Flujo de caja (escenario exitoso)</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm" id="tablaFlujos">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3 text-left">Período</th>
+                                    <th class="p-3 text-right">Monto</th>
+                                    <th class="p-3 text-left">Concepto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyFlujos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Market report section: summarises the attached report to inform investors -->
+        <section class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">📑 Resumen del Mercado de Ancud</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Key findings -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-green-700">Hallazgos clave</h3>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-700 text-sm">
+                        <li>Apreciación anual sostenida del <strong>17.8%</strong> en parcelas de Ancud.</li>
+                        <li>Precio mediano del mercado: <strong>$11.5M CLP</strong>.</li>
+                        <li>Velocidad de mercado: <strong>39 transacciones mensuales</strong>.</li>
+                        <li>Plusvalía Mingamos: de <strong>$6.5M</strong> en 2018 a <strong>$16.8M</strong> en 2025.</li>
+                        <li>Plusvalía anual compuesta: <strong>14.6%</strong> vs. 3–5% depósitos a plazo.</li>
+                    </ul>
+                    <p class="mt-4 text-sm text-gray-600">El mercado de Ancud está en plena expansión con una demanda superior a la oferta (ratio 17:1). Esto genera presión al alza en los precios y un entorno favorable para la liquidez futura.</p>
+                </div>
+                <!-- Mingamos vs mercado -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-blue-700">Mingamos vs. mercado general</h3>
+                    <p class="text-sm text-gray-700 mb-2">Las parcelas Mingamos se venden entre un 46 % y un 55 % sobre el precio mediano del mercado debido a mejoras como urbanización completa, ubicación estratégica y seguridad jurídica.</p>
+                    <table class="w-full text-sm bg-gray-50 rounded-lg overflow-hidden">
+                        <thead class="bg-gray-200 text-gray-700">
+                            <tr>
+                                <th class="p-2 text-left">Año</th>
+                                <th class="p-2 text-right">Mingamos</th>
+                                <th class="p-2 text-right">Mercado</th>
+                                <th class="p-2 text-right">Dif.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b"><td class="p-2">2018</td><td class="p-2 text-right">$6.5M</td><td class="p-2 text-right">$7.8M</td><td class="p-2 text-right">-17%</td></tr>
+                            <tr class="border-b"><td class="p-2">2019</td><td class="p-2 text-right">$7.3M</td><td class="p-2 text-right">$8.2M</td><td class="p-2 text-right">-11%</td></tr>
+                            <tr class="border-b"><td class="p-2">2020</td><td class="p-2 text-right">$8.5M</td><td class="p-2 text-right">$8.9M</td><td class="p-2 text-right">-4%</td></tr>
+                            <tr class="border-b"><td class="p-2">2021</td><td class="p-2 text-right">$9.0M</td><td class="p-2 text-right">$9.2M</td><td class="p-2 text-right">-2%</td></tr>
+                            <tr class="border-b"><td class="p-2">2022</td><td class="p-2 text-right">$14.0M</td><td class="p-2 text-right">$9.5M</td><td class="p-2 text-right">+47%</td></tr>
+                            <tr class="border-b"><td class="p-2">2023</td><td class="p-2 text-right">$15.0M</td><td class="p-2 text-right">$9.8M</td><td class="p-2 text-right">+53%</td></tr>
+                            <tr class="border-b"><td class="p-2">2024</td><td class="p-2 text-right">$15.5M</td><td class="p-2 text-right">$10.0M</td><td class="p-2 text-right">+55%</td></tr>
+                            <tr><td class="p-2">2025</td><td class="p-2 text-right">$16.8M</td><td class="p-2 text-right">$11.5M</td><td class="p-2 text-right">+46%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Catalysts & projections -->
+            <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h3 class="text-xl font-semibold mb-2 text-blue-800">Catalizadores de crecimiento</h3>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                        <li>Puente Chacao operativo 2024 reducirá el viaje a Puerto&nbsp;Montt de 2,5 h a 30 min.</li>
+                        <li>Nuevo Hospital de Ancud (Q2 2026) atraerá profesionales y generará más de 350 empleos.</li>
+                        <li>Crecimiento poblacional proyectado a 2030: +28 % en Ancud.</li>
+                        <li>Terminal de cruceros: 85 recaladas anuales e impacto turístico de $8.500M CLP/año.</li>
+                        <li>Relación oferta/demanda 17:1 mantiene presión alcista en precios.</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                    <h3 class="text-xl font-semibold mb-2 text-purple-800">Proyección de plusvalía 2025‑2027</h3>
+                    <table class="w-full text-sm bg-purple-100 rounded-lg overflow-hidden">
+                        <thead class="bg-purple-200 text-purple-800">
+                            <tr>
+                                <th class="p-2 text-left">Año</th>
+                                <th class="p-2 text-right">Precio proyectado</th>
+                                <th class="p-2 text-right">Incremento anual</th>
+                                <th class="p-2 text-right">Acumulado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-purple-300"><td class="p-2">2025</td><td class="p-2 text-right">$16.8M</td><td class="p-2 text-right">—</td><td class="p-2 text-right">0%</td></tr>
+                            <tr class="border-b border-purple-300"><td class="p-2">2026</td><td class="p-2 text-right">$18.6M</td><td class="p-2 text-right">+10.7%</td><td class="p-2 text-right">+10.7%</td></tr>
+                            <tr><td class="p-2">2027</td><td class="p-2 text-right">$20.7M</td><td class="p-2 text-right">+11.3%</td><td class="p-2 text-right">+23.2%</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-sm text-gray-700">Modelo conservador basado en datos históricos.</p>
+                </div>
+            </div>
+            <!-- Investment comparison chart -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">📊 Comparativa de inversión</h3>
+                <p class="text-sm text-gray-600 mb-3">Incluso si el objetivo principal es disfrutar de tu parcela, la rentabilidad de Mingamos
+                    sigue superando a instrumentos tradicionales como depósitos a plazo, fondos mutuos, AFP, la compra de un auto (que es un gasto)
+                    o la inversión en un departamento pequeño.</p>
+                <!-- Reduce canvas height for better fit on screens -->
+                <canvas id="chartComparativa" height="220" class="max-h-64"></canvas>
+            </div>
+
+        <!-- Frequently Asked Questions for leads -->
+        <section class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">🤔 Preguntas frecuentes para Leads</h3>
+            <p class="text-sm text-gray-700 mb-4">Nuestro objetivo es ayudarte a decidir si este mercado es para ti y brindarte claridad sin presiones, tal como se explica en la diferencia de objetivo de un informe para leads. A continuación respondemos las principales inquietudes.</p>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="p-4 border-l-4 border-green-400 rounded-md">
+                    <summary class="font-semibold text-green-700 cursor-pointer">¿Cómo está realmente el mercado rural en Ancud hoy?</summary>
+                    <p class="text-sm text-gray-700 mt-2">Ancud no es un mercado especulativo: es un mercado lento pero con fundamentos reales. Existen ventas reales (no sólo avisos) y se aprecia diferencia entre el precio que se pide y el que se cierra, lo que reduce la ansiedad y aumenta la confianza en el proceso.</p>
+                </details>
+                <!-- FAQ 2 -->
+                <details class="p-4 border-l-4 border-blue-400 rounded-md">
+                    <summary class="font-semibold text-blue-700 cursor-pointer">¿Cuánto vale hoy una parcela en Ancud?</summary>
+                    <p class="text-sm text-gray-700 mt-2">El valor depende del sector, el acceso y el entorno: estos factores explican hasta un 40–60 % de diferencia en precio. Puntra y los proyectos con orilla de río urbanizados suelen tener mayor valor que otras zonas.</p>
+                </details>
+                <!-- FAQ 3 -->
+                <details class="p-4 border-l-4 border-orange-400 rounded-md">
+                    <summary class="font-semibold text-orange-700 cursor-pointer">¿Qué tan fácil es vender una parcela como esta?</summary>
+                    <p class="text-sm text-gray-700 mt-2">La clave no es el precio sino la liquidez. Analizamos cuánto se demoran en venderse parcelas similares y qué se vende más rápido. Nuestro pacto de retroventa reduce el miedo a quedar atrapado.</p>
+                </details>
+                <!-- FAQ 4 -->
+                <details class="p-4 border-l-4 border-purple-400 rounded-md">
+                    <summary class="font-semibold text-purple-700 cursor-pointer">¿Hay plusvalía real en Ancud?</summary>
+                    <p class="text-sm text-gray-700 mt-2">Sí. Ancud no sube rápido como Puerto Varas, pero tampoco cae. La plusvalía histórica de las parcelas Mingamos es de 14,6 % anual, aunque un rango conservador para el mercado rural puede ubicarse en 6 % anual.</p>
+                </details>
+                <!-- FAQ 5 -->
+                <details class="p-4 border-l-4 border-teal-400 rounded-md">
+                    <summary class="font-semibold text-teal-700 cursor-pointer">¿Qué cambia si urbanizo mínimamente?</summary>
+                    <p class="text-sm text-gray-700 mt-2">No todas las mejoras generan el mismo valor. Acceso y agua explican más valor que cualquier quincho: obras como nivelación, cerco y conexión eléctrica aumentan significativamente el precio.</p>
+                </details>
+                <!-- FAQ 6 -->
+                <details class="p-4 border-l-4 border-yellow-400 rounded-md">
+                    <summary class="font-semibold text-yellow-700 cursor-pointer">¿Casa o parcela? ¿Qué conviene hoy?</summary>
+                    <p class="text-sm text-gray-700 mt-2">Una parcela sin casa es capital inmóvil. Construir una casa bien pensada puede generar uso propio o renta, transformando la pregunta de «¿compro o no?» en «¿cómo la uso?». </p>
+                </details>
+                <!-- FAQ 7 -->
+                <details class="p-4 border-l-4 border-pink-400 rounded-md">
+                    <summary class="font-semibold text-pink-700 cursor-pointer">¿Cuáles son los riesgos reales del mercado rural?</summary>
+                    <p class="text-sm text-gray-700 mt-2">Consideramos variables como accesos, disponibilidad de agua, proyectos mal planteados y errores comunes. No todas las parcelas son iguales y muchos problemas no se ven en el aviso.</p>
+                </details>
+                <!-- FAQ 8 -->
+                <details class="p-4 border-l-4 border-indigo-400 rounded-md">
+                    <summary class="font-semibold text-indigo-700 cursor-pointer">Si mi objetivo es X, ¿cuál es el camino lógico?</summary>
+                    <p class="text-sm text-gray-700 mt-2">Si quieres invertir, la combinación recomendada es elegir sectores con retroventa; si quieres usar, considera casa + arriendo parcial; si quieres conservar, apuesta por bajo riesgo y administración.</p>
+                </details>
+            </div>
+            <!-- Nota aclaratoria sin citas -->
+            <p class="text-xs text-gray-500 mt-4">*La rentabilidad esperada varía según el mercado y las mejoras; este material tiene tono explicativo y comparativo y no constituye una oferta de compra.</p>
+        </section>
+
+        <!-- Guarantees section -->
+        <section class="bg-gradient-to-r from-green-50 via-lime-50 to-amber-100 p-6 rounded-lg border-2 border-green-200">
+            <h2 class="text-2xl font-bold mb-4 text-blue-900">🛡️ Tus garantías</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white p-3 rounded-lg flex items-start gap-3">
+                    <span class="text-2xl">✅</span>
+                    <div>
+                        <p class="font-semibold">Margen de seguridad</p>
+                        <p class="text-sm text-gray-600">Compra por debajo del mercado</p>
+                    </div>
+                </div>
+                <div class="bg-white p-3 rounded-lg flex items-start gap-3">
+                    <span class="text-2xl">🏦</span>
+                    <div>
+                        <p class="font-semibold">Hipoteca de primer grado</p>
+                        <p class="text-sm text-gray-600">Sobre el activo valorizado</p>
+                    </div>
+                </div>
+                <div class="bg-white p-3 rounded-lg flex items-start gap-3">
+                    <span class="text-2xl">🔄</span>
+                    <div>
+                        <p class="font-semibold">Pacto de retroventa</p>
+                        <p class="text-sm text-gray-600">Recompra garantizada</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to action emphasising discovery and romance -->
+        <section class="mt-8 bg-gradient-to-r from-lime-400 via-emerald-400 to-teal-300 text-white p-8 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-bold mb-2">Descubre el valor de tu parcela</h2>
+            <p class="text-sm mb-6">Solicita un informe legal, visita nuestras parcelas y evalúa escenarios personalizados. Nuestro objetivo es ayudarte a enamorarte de tu futuro terreno y resolver tus dudas, no venderte algo de inmediato.</p>
+            <a href="#" class="inline-block bg-white text-green-700 font-bold px-8 py-3 rounded-full shadow hover:bg-gray-100 transition-colors">Quiero conocer más</a>
+            <p class="text-xs mt-4 opacity-80">WhatsApp: +56 9 7648 5984 · contacto@mingamos.cl</p>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="mt-10 bg-gray-800 text-white p-6 text-center rounded-t-3xl">
+        <p class="text-sm">Mingamos Propiedades © 2026 | Inversión 100% protegida con pacto de retroventa</p>
+        <p class="text-xs mt-2 opacity-70">Este simulador es referencial. Los retornos reales pueden variar según las condiciones de mercado.</p>
+    </footer>
+    <script>
+        let chart = null;
+        let chart2 = null;
+        function calcular() {
+            // Obtener el plan seleccionado y el plazo
+            const plan = document.getElementById('plan').value;
+            const plazo = parseInt(document.getElementById('plazo').value);
+            // Información de cada plan (millones de CLP)
+            const planes = {
+                '9': { inversion: 9, venta: 14.7 },
+                '12': { inversion: 12, venta: 17.5 },
+                '16': { inversion: 16, venta: 26 }
+            };
+            const datos = planes[plan];
+            const inversion = datos.inversion;
+            const venta = datos.venta;
+            const años = plazo / 12;
+            // Margen de seguridad respecto al valor de venta
+            const margen = ((venta - inversion) / venta * 100).toFixed(1);
+            document.getElementById('margenSeguridad').textContent = `${margen}%`;
+            // Mostrar monto a invertir
+            document.getElementById('montoInversion').textContent = `$${inversion.toLocaleString('es-CL', { maximumFractionDigits: 0 })}M CLP`;
+            // Retorno mínimo garantizado: capital + 7% anual simple
+            const retornoMin = inversion * (1 + 0.07 * años);
+            document.getElementById('retornoMinimo').textContent = `$${retornoMin.toLocaleString('es-CL', { maximumFractionDigits: 0 })}M`;
+            const roiMin = ((retornoMin - inversion) / inversion * 100).toFixed(1);
+            document.getElementById('roiMinimo').textContent = `${roiMin}%`;
+            // Intereses garantizados (no venta): sólo intereses
+            const intereses = inversion * 0.07 * años;
+            // Escenario de venta exitosa: recibes capital + 7% anual + 25% del diferencial
+            const diferencial = venta - inversion;
+            const participacion = diferencial * 0.25;
+            const retornoTotal = retornoMin + participacion;
+            const gananciaTotal = retornoTotal - inversion;
+            // Actualizar campos
+            document.getElementById('precioVentaFinal').textContent = `$${venta.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            document.getElementById('gananciaTotal').textContent = `$${gananciaTotal.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            document.getElementById('tuGanancia').textContent = `$${participacion.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            document.getElementById('retornoTotal').textContent = `$${retornoTotal.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            const roiExitoso = ((retornoTotal - inversion) / inversion * 100).toFixed(1);
+            const roiAnualizado = (roiExitoso / años).toFixed(1);
+            document.getElementById('roiExitoso').textContent = `${roiExitoso}%`;
+            document.getElementById('roiAnualizado').textContent = `${roiAnualizado}%`;
+            document.getElementById('ejemploExitoso').textContent =
+                `Inviertes $${inversion.toLocaleString('es-CL', { maximumFractionDigits: 0 })}M. Vendemos en ${plazo} meses a $${venta.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M. ` +
+                `Recibes tu capital en UF + 7% anual (≈$${(inversion * 0.07 * años).toLocaleString('es-CL', { maximumFractionDigits: 1 })}M) ` +
+                `+ 25% del diferencial (≈$${participacion.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M). Total: $${retornoTotal.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M (` +
+                `${roiExitoso}% retorno, ${roiAnualizado}% anual).`;
+            // Escenario no venta (retroventa): se devuelven sólo intereses y mantienes la parcela
+            document.getElementById('pagoRetroventa').textContent = `$${intereses.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            // ROI del escenario no venta: intereses sobre inversión
+            const roiNoVenta = ((intereses) / inversion * 100).toFixed(1);
+            document.getElementById('roiGarantizado').textContent = `${roiNoVenta}%`;
+            // Valor de mercado del activo al término (10% anual de plusvalía)
+            const valorFuturo = venta * Math.pow(1.10, años);
+            // Escenario conserva: puedes pagar la diferencia entre venta y inversión para quedarte con la parcela
+            const adicional = (venta - inversion) > 0 ? (venta - inversion) : 0;
+            const totalPagado = inversion + adicional;
+            const gananciaConserva = valorFuturo - totalPagado;
+            const roiConserva = ((gananciaConserva / totalPagado) * 100).toFixed(1);
+            document.getElementById('yaPagado').textContent = `$${inversion.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            document.getElementById('pagoAdicional').textContent = `$${adicional.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            document.getElementById('valorMercadoConserva').textContent = `$${valorFuturo.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            document.getElementById('gananciaConserva').textContent = `$${gananciaConserva.toLocaleString('es-CL', { maximumFractionDigits: 1 })}M`;
+            document.getElementById('roiConserva').textContent = `${roiConserva}%`;
+            // Actualizar gráficos y tabla de flujos
+            actualizarGrafico(inversion, intereses, retornoTotal, gananciaConserva);
+            actualizarTablaFlujos(inversion, gananciaTotal, retornoTotal, plazo);
+        }
+        function cambiarTab(tab) {
+            // Hide all scenarios
+            document.getElementById('escenarioExitoso').classList.add('hidden');
+            document.getElementById('escenarioNoVenta').classList.add('hidden');
+            document.getElementById('escenarioConserva').classList.add('hidden');
+            // Reset tab styles
+            document.getElementById('tabExitoso').className = 'px-4 py-2 font-semibold text-gray-500 hover:text-gray-700';
+            document.getElementById('tabNoVenta').className = 'px-4 py-2 font-semibold text-gray-500 hover:text-gray-700';
+            document.getElementById('tabConserva').className = 'px-4 py-2 font-semibold text-gray-500 hover:text-gray-700';
+            // Show selected tab content
+            if (tab === 'exitoso') {
+                document.getElementById('escenarioExitoso').classList.remove('hidden');
+                document.getElementById('tabExitoso').className = 'px-4 py-2 font-semibold border-b-2 border-green-600 text-green-600';
+            } else if (tab === 'noVenta') {
+                document.getElementById('escenarioNoVenta').classList.remove('hidden');
+                document.getElementById('tabNoVenta').className = 'px-4 py-2 font-semibold border-b-2 border-orange-600 text-orange-600';
+            } else {
+                document.getElementById('escenarioConserva').classList.remove('hidden');
+                document.getElementById('tabConserva').className = 'px-4 py-2 font-semibold border-b-2 border-purple-600 text-purple-600';
+            }
+        }
+        function actualizarGrafico(inversion, retornoMin, retornoMax, conserva) {
+            const ctx = document.getElementById('chartComparacion').getContext('2d');
+            if (chart) {
+                chart.destroy();
+            }
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Inversión inicial', 'Intereses (no venta)', 'Retorno exitoso (venta)', 'Ganancia (conserva)'],
+                    datasets: [{
+                        label: 'Millones CLP',
+                        data: [inversion, retornoMin, retornoMax, conserva],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(251, 146, 60, 0.8)',
+                            'rgba(34, 197, 94, 0.8)',
+                            'rgba(168, 85, 247, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(59, 130, 246)',
+                            'rgb(251, 146, 60)',
+                            'rgb(34, 197, 94)',
+                            'rgb(168, 85, 247)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return '$' + context.parsed.y.toLocaleString('es-CL') + 'M';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString('es-CL') + 'M';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        function actualizarTablaFlujos(inversion, ganancia, total, plazo) {
+            const tbody = document.getElementById('bodyFlujos');
+            tbody.innerHTML = '';
+            const rows = [
+                { periodo: 'Mes 0', monto: -inversion, concepto: 'Inversión inicial', clase: 'text-red-600' },
+                { periodo: `Mes ${plazo}`, monto: inversion, concepto: 'Recuperación de capital', clase: 'text-blue-600' },
+                { periodo: `Mes ${plazo}`, monto: ganancia, concepto: 'Ganancia', clase: 'text-green-600' },
+                { periodo: 'TOTAL', monto: total - inversion, concepto: 'Utilidad neta', clase: 'text-purple-600 font-bold' }
+            ];
+            rows.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-b';
+                tr.innerHTML = `
+                    <td class="p-3">${row.periodo}</td>
+                    <td class="p-3 text-right ${row.clase}">$${Math.abs(row.monto).toLocaleString('es-CL', { maximumFractionDigits: 0 })}M</td>
+                    <td class="p-3">${row.concepto}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+        // Draw comparative investment chart once on load
+        function dibujarComparativa() {
+            const ctx2 = document.getElementById('chartComparativa').getContext('2d');
+            if (chart2) {
+                chart2.destroy();
+            }
+            chart2 = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Pacto Mingamos',
+                        'Depósito a plazo',
+                        'Fondo mutuo conservador',
+                        'AFP Multifondo C',
+                        'Arriendo depto Santiago',
+                        'Auto (gasto)',
+                        'Departamento de inversión'
+                    ],
+                    datasets: [{
+                        label: 'Rentabilidad anual (% TIR)',
+                        data: [15, 3.2, 4.5, 6.8, 5.5, -15, 4],
+                        backgroundColor: [
+                            'rgba(34, 197, 94, 0.8)',        // Pacto Mingamos (verde)
+                            'rgba(251, 146, 60, 0.8)',        // Depósito a plazo (naranja)
+                            'rgba(59, 130, 246, 0.8)',        // Fondo mutuo (azul)
+                            'rgba(168, 85, 247, 0.8)',        // AFP (morado)
+                            'rgba(139, 92, 246, 0.8)',        // Arriendo (violeta)
+                            'rgba(239, 68, 68, 0.8)',         // Auto (rojo)
+                            'rgba(252, 211, 77, 0.8)'         // Depto inversión (amarillo)
+                        ],
+                        borderColor: [
+                            'rgb(34, 197, 94)',
+                            'rgb(251, 146, 60)',
+                            'rgb(59, 130, 246)',
+                            'rgb(168, 85, 247)',
+                            'rgb(139, 92, 246)',
+                            'rgb(239, 68, 68)',
+                            'rgb(252, 211, 77)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    // Show only the percentage value without suffix
+                                    return context.parsed.y + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            // Allow negative values (e.g. autos son gasto)
+                            beginAtZero: false,
+                            suggestedMin: -20,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        // Auto‑calculate when the user changes the plan or plazo
+        document.querySelectorAll('select').forEach(el => {
+            el.addEventListener('change', calcular);
+        });
+        window.onload = function() {
+            calcular();
+            dibujarComparativa();
+        };
+    </script>
+</body>
+</html>
